@@ -1,9 +1,9 @@
 import MainLayout from "@/components/mainLayout";
 import Link from "next/link";
 
-export default function Index() {
+export default function Index({ copyright }) {
 	return (
-		<MainLayout>
+		<MainLayout copyright={copyright}>
 			<div className="main-body">
 				<h1>Read our awesome stories!</h1>
 				<h2>What do we have:</h2>

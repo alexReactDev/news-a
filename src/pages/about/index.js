@@ -2,13 +2,13 @@ import MainLayout from "@/components/mainLayout";
 import Link from "next/link";
 import Router from "next/router";
 
-export default function About() {
+export default function About({copyright}) {
 	function goHomer() {
 		if(confirm("Are you sure?")) Router.push("/");
 	}
 
 	return (
-		<MainLayout title="News A+ | About">
+		<MainLayout title="News A+ | About" copyright={copyright}>
 			<h1>
 				About us
 			</h1>

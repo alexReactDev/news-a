@@ -1,7 +1,7 @@
 import Logo from "./logo";
 import MetaData from "./metaData";
 
-export default function MainLayout({ children, title }) {
+export default function MainLayout({ children, title, copyright }) {
 	return (
 		<>
 			<style jsx>{`
@@ -24,6 +24,9 @@ export default function MainLayout({ children, title }) {
 				<div className="container">
 					{children}
 				</div>
+				<footer>
+					{copyright}
+				</footer>
 			</main>
 		</>
 	)

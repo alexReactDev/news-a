@@ -1,5 +1,4 @@
 import Head from "next/head";
-import "../styles/nullstyle.css";
 
 export default function MetaData({ title = "News A+"}) {
 	return (
