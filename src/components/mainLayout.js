@@ -1,3 +1,4 @@
+import GlobalStyle from "@/styles/jsxGlobalStyle";
 import Footer from "./footer";
 import Logo from "./logo";
 import MetaData from "./metaData";
@@ -19,23 +20,7 @@ export default function MainLayout({ children, title, copyright }) {
 					flex: 1 1 auto;
 				}
 			`}</style>
-
-			<style jsx global>{`
-				.container {
-					max-width: 1200px;
-					margin: 0px auto;
-				}
-				html, body {
-					height: 100%;
-				}
-				body {
-					background-color: #fefefe;
-				}
-				#__next {
-					height: 100%;
-				}
-			`}</style>
-
+			<GlobalStyle />
 			<MetaData title={title} />
 			<div className="wrapper">
 				<header>
