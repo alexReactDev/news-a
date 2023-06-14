@@ -1,4 +1,8 @@
-export default function Footer({ copyright }) {
+interface IProps {
+	copyright: string
+}
+
+export default function Footer({ copyright }: IProps) {
 	return (
 		<>
 		<footer>

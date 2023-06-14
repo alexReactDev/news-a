@@ -1,4 +1,4 @@
-import React, { ReactChild, ReactNode } from "react";
+import React, { ReactNode } from "react";
 import GlobalStyle from "../styles/jsxGlobalStyle";
 import Footer from "./footer";
 import Logo from "./logo";

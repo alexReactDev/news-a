@@ -1,6 +1,10 @@
 import Head from "next/head";
 
-export default function MetaData({ title = "News A+"}) {
+interface IProps {
+	title: string
+}
+
+export default function MetaData({ title = "News A+"}: IProps) {
 	return (
 		<Head>
 			<title>{title}</title>
