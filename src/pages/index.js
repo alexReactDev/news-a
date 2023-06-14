@@ -1,7 +1,7 @@
 import MainLayout from "@/components/mainLayout";
 import Link from "next/link";
 
-export default function Index({ copyright }) {
+function Index({ copyright }) {
 	return (
 		<MainLayout copyright={copyright}>
 			<div className="main-body">
@@ -24,6 +24,11 @@ export default function Index({ copyright }) {
 						</Link>
 					</li>
 					<li>
+						<Link href="/posts/all">
+								All posts
+						</Link>
+					</li>
+					<li>
 						<Link href="/about">
 								About
 						</Link>
@@ -38,3 +43,5 @@ export default function Index({ copyright }) {
 		</MainLayout>
 	)
 }
+
+export default Index;

@@ -25,6 +25,7 @@ export default function GlobalStyle() {
 				font-size: 1.2rem;
 				font-weight: 700;
 				color: #333333;
+				margin-bottom: 15px;
 			}
 
 			.default-body {

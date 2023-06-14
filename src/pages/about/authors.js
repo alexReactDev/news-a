@@ -19,6 +19,12 @@ export default function Authors({copyright}) {
 				<li>
 					Johny Depp
 				</li>
+				<li>
+					Bloody Mary
+				</li>
+				<li>
+					John Doe
+				</li>
 			</ul>
 		</MainLayout>
 	)
