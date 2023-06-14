@@ -44,7 +44,11 @@ function Index({ copyright, categories }) {
 
 				ul {
 					display: inline-block;
+					min-width: 200px;
 					margin: 0px auto;
+					border: solid #cccccc 1px;
+					padding: 0px 30px;
+					background-color: #f9f9f9;
 				}
 				li {
 					margin-bottom: 10px;

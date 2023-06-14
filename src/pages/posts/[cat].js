@@ -25,8 +25,12 @@ export default function Post({copyright, posts}) {
 			}
 			<style jsx>{`
 				li {
-					list-style: none;
 					margin-bottom: 25px;
+					border: solid #cccccc 1px;
+					padding: 15px;
+					list-style: none;
+					background-color: #f9f9f9;
+					box-shadow: -1px 1px 2px -0.5px #cccccc;
 				}
 				h3 {
 					margin-bottom: 7.5px;
@@ -50,14 +54,6 @@ export default function Post({copyright, posts}) {
 				<ul>
 					{returnPosts()}
 				</ul>
-				<style jsx>
-					{`
-						ul {
-							background-color: pink;
-							padding: 20px;
-						}
-					`}
-				</style>
 			</div>
 		</MainLayout>
 	)
