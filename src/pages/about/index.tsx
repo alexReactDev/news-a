@@ -1,8 +1,12 @@
-import MainLayout from "@/components/mainLayout";
+import MainLayout from "../../components/mainLayout";
 import Link from "next/link";
 import Router from "next/router";
 
-export default function About({copyright}) {
+interface IProps {
+	copyright: string
+}
+
+export default function About({copyright}: IProps) {
 	function goHomer() {
 		if(confirm("Are you sure?")) Router.push("/");
 	}

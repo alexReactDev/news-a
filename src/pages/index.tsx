@@ -1,7 +1,13 @@
 import MainLayout from "../components/mainLayout";
 import Link from "next/link";
+import ICategory from "../interfaces/ICategory";
 
-function Index({ copyright, categories }) {
+interface IProps {
+	copyright: string,
+	categories: ICategory[]
+}
+
+function Index({ copyright, categories }: IProps) {
 	return (
 		<MainLayout copyright={copyright} title="NewsA+ | Home">
 			<div className="main-body">
@@ -59,10 +65,10 @@ function Index({ copyright, categories }) {
 	)
 }
 
-export  async function getStaticProps() {
+export async function getStaticProps() {
 	const data = await fetch("http://localhost:4500/categories");
 
-	const categories = await data.json();
+	const categories: ICategory[] = await data.json();
 
 	return {
 		props: {

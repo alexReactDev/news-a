@@ -1,8 +1,15 @@
-import MainLayout from "@/components/mainLayout";
+import MainLayout from "../../components/mainLayout";
 import Link from "next/link";
-import { useRouter } from "next/router"
+import { useRouter } from "next/router";
+import IPost from "../../interfaces/IPost";
+import { NextPageContext } from "next";
 
-export default function Post({copyright, posts}) {
+interface IProps {
+	copyright: string, 
+	posts: IPost[]
+}
+
+export default function Post({copyright, posts}: IProps) {
 	const router = useRouter();
 
 	function returnPosts() {
@@ -59,7 +66,7 @@ export default function Post({copyright, posts}) {
 	)
 }
 
-Post.getInitialProps = async ({ query }) => {
+Post.getInitialProps = async ({ query }: NextPageContext) => {
 	let resp;
 	
 	if(query.cat === "all") {
@@ -69,7 +76,7 @@ Post.getInitialProps = async ({ query }) => {
 		resp = await fetch(`http://localhost:4500/posts/${query.cat}`);
 	}
 
-	const posts = await resp.json();
+	const posts: IPost[] = await resp.json();
 
 	return {posts};
 }

@@ -1,9 +1,17 @@
-import Loader from "@/components/loader";
-import MainLayout from "@/components/mainLayout";
+import Loader from "../../components/loader";
+import MainLayout from "../../components/mainLayout";
 import { useEffect, useState } from "react";
+import IPost from "../../interfaces/IPost";
+import { GetStaticProps } from "next";
+import IComment from "../../interfaces/IComment";
 
-function Post({ post }) {
-	const [comments, setComments] = useState(null);
+interface IProps {
+	post: IPost,
+	copyright: string
+}
+
+function Post({ post, copyright }: IProps) {
+	const [comments, setComments] = useState<IComment[]>([]);
 
 	useEffect(() => {
 		(async () => {
@@ -24,7 +32,7 @@ function Post({ post }) {
 				{
 					comments.map((comment) => {
 						const creationDate = new Date(+comment.created).toString().match(/.+?(?=GMT)/);
-
+						
 						return (
 							<li key={comment.id}>
 								<h4>{comment.author}</h4>
@@ -64,7 +72,7 @@ function Post({ post }) {
 		)
 	}
 	return (
-		<MainLayout>
+		<MainLayout title="NewsA" copyright={copyright} >
 			<div className="default-body">
 				<h2>
 					{post.title}
@@ -116,7 +124,7 @@ export async function getStaticPaths() {
 	return {paths, fallback: false}
 }
 
-export async function getStaticProps({ params }) {
+export const getStaticProps: GetStaticProps<{post: IPost}> = async function({ params }) {
 	const res = await fetch(`http://localhost:4500/posts/post/${params.id}`);
 	const post = await res.json();
 
