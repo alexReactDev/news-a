@@ -1,9 +1,9 @@
-import MainLayout from "@/components/mainLayout";
+import MainLayout from "../components/mainLayout";
 import Link from "next/link";
 
 function Index({ copyright, categories }) {
 	return (
-		<MainLayout copyright={copyright}>
+		<MainLayout copyright={copyright} title="NewsA+ | Home">
 			<div className="main-body">
 				<div className="default-body">
 					<h1 className="title">Read our awesome stories!</h1>

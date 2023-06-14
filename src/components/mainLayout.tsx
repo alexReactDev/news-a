@@ -1,9 +1,16 @@
-import GlobalStyle from "@/styles/jsxGlobalStyle";
+import React, { ReactChild, ReactNode } from "react";
+import GlobalStyle from "../styles/jsxGlobalStyle";
 import Footer from "./footer";
 import Logo from "./logo";
 import MetaData from "./metaData";
 
-export default function MainLayout({ children, title, copyright }) {
+interface IProps {
+	title: string,
+	copyright: string,
+	children: ReactNode
+}
+
+export default function MainLayout({ children, title, copyright }: IProps) {
 	return (
 		<>
 			<style jsx>{`
