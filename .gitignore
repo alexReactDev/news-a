@@ -14,11 +14,13 @@
 
 # production
 /build
+/public/img
 
 # misc
 .DS_Store
 *.pem
 /src/img
+/_dev
 
 # debug
 npm-debug.log*
