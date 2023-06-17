@@ -1,0 +1,24 @@
+.item {
+	list-style: none;
+}
+
+.item:not(:last-child) {
+	margin-bottom: 15px;
+}
+
+.profile {
+	display: flex;
+	align-items: center;
+	padding: 10px;
+	text-decoration: none;
+	background-color: whitesmoke;
+}
+
+.title {
+	padding-left: 20px;
+	font-size: 20px;
+}
+
+.picture {
+	border: solid #c3c3c3 1px;
+}
