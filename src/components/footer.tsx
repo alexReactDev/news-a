@@ -1,8 +1,7 @@
-interface IProps {
-	copyright: string
-}
+export default async function Footer() {
+	const res = await fetch("http://localhost:3000/api/copyright");
+	const copyright = res.json();
 
-export default function Footer({ copyright }: IProps) {
 	return (
 		<>
 		<footer>

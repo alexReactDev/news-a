@@ -40,7 +40,7 @@ export default function RootLayout({
             <main>
               {children}
             </main>
-            <Footer copyright="@ copy 42" />
+            <Footer />
           </div>
         </>
       </body>
