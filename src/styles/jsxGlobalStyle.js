@@ -1,6 +1,6 @@
 export default function GlobalStyle() {
 	return (
-		<style jsx global>{`
+		<style>{`
 			.container {
 				max-width: 1200px;
 				margin: 0px auto;

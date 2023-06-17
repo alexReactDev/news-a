@@ -13,7 +13,7 @@ interface IProps {
 export default function MainLayout({ children, title, copyright }: IProps) {
 	return (
 		<>
-			<style jsx>{`
+			<style>{`
 				header {
 					padding: 20px;
 					background-color: #eeeeee;
@@ -28,7 +28,7 @@ export default function MainLayout({ children, title, copyright }: IProps) {
 				}
 			`}</style>
 			<GlobalStyle />
-			<MetaData title={title} />
+			{/*<MetaData title={title} />*/}
 			<div className="wrapper">
 				<header>
 					<Logo />

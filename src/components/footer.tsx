@@ -8,7 +8,7 @@ export default function Footer({ copyright }: IProps) {
 		<footer>
 			{copyright}
 		</footer>
-		<style jsx>{`
+		<style>{`
 			footer {
 				padding: 20px;
 				background-color: #eeeeee;

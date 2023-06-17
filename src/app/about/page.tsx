@@ -1,15 +1,12 @@
+import { Metadata } from "next";
 import MainLayout from "../../components/mainLayout";
 import Link from "next/link";
-import Router from "next/router";
 
 interface IProps {
 	copyright: string
 }
 
 export default function About({copyright}: IProps) {
-	function goHomer() {
-		if(confirm("Are you sure?")) Router.push("/");
-	}
 
 	return (
 		<MainLayout title="News A+ | About" copyright={copyright}>
@@ -23,7 +20,10 @@ export default function About({copyright}: IProps) {
 				Our awesome team
 			</Link>
 			<br></br>
-			<button onClick={goHomer}>Go back home</button>
 		</MainLayout>
 	)
+}
+
+export const metadata: Metadata = {
+	title: "About us"
 }
