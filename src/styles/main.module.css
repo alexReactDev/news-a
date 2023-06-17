@@ -1,0 +1,11 @@
+.main_body {
+	display: flex;
+}
+
+.main {
+	width: 70%;
+}
+
+.aside {
+	width: 30%;
+}

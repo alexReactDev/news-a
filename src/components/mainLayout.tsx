@@ -1,44 +1,20 @@
-import React, { ReactNode } from "react";
-import GlobalStyle from "../styles/jsxGlobalStyle";
-import Footer from "./footer";
-import Logo from "./logo";
-import MetaData from "./metaData";
+import TopNav from "./topNav"
 
-interface IProps {
-	title: string,
-	copyright: string,
-	children: ReactNode
-}
+import style from "../styles/main.module.css";
 
-export default function MainLayout({ children, title, copyright }: IProps) {
+export default function MainLayout({ children }) {
 	return (
 		<>
-			<style>{`
-				header {
-					padding: 20px;
-					background-color: #eeeeee;
-				}
-				.wrapper {
-					min-height: 100%;
-					display: flex;
-					flex-direction: column;
-				}
-				main {
-					flex: 1 1 auto;
-				}
-			`}</style>
-			<GlobalStyle />
-			{/*<MetaData title={title} />*/}
-			<div className="wrapper">
-				<header>
-					<Logo />
-				</header>
-				<main>
-					<div className="container">
+			<TopNav />
+			<div className="container">
+				<div className={style.main_body}>
+					<aside className={style.aside}>
+						Aside
+					</aside>
+					<main className={style.main}>
 						{children}
-					</div>
-				</main>
-				<Footer copyright={copyright} />
+					</main>
+				</div>
 			</div>
 		</>
 	)

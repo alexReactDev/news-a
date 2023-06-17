@@ -1,0 +1,6 @@
+.label {
+	margin: 5px 0px 15px 0px;
+	border: solid rgb(212, 212, 212) 1px;
+	padding: 10px 0px;
+	box-shadow: 0px 4px 4px -5px rgb(148, 148, 148);
+}

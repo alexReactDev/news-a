@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import MainLayout from "../../components/mainLayout";
 import Link from "next/link";
 
 interface IProps {
@@ -9,7 +8,7 @@ interface IProps {
 export default function About({copyright}: IProps) {
 
 	return (
-		<MainLayout title="News A+ | About" copyright={copyright}>
+		<>
 			<h1>
 				About us
 			</h1>
@@ -20,7 +19,7 @@ export default function About({copyright}: IProps) {
 				Our awesome team
 			</Link>
 			<br></br>
-		</MainLayout>
+		</>
 	)
 }
 

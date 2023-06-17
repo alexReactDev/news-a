@@ -2,7 +2,7 @@ import MainLayout from "../../../components/mainLayout";
 
 export default function Authors({copyright}) {
 	return (
-		<MainLayout title="News A+ | About" copyright={copyright}>
+		<>
 			<h1>
 				Our awesome team
 			</h1>
@@ -26,6 +26,6 @@ export default function Authors({copyright}) {
 					John Doe
 				</li>
 			</ul>
-		</MainLayout>
+		</>
 	)
 }
