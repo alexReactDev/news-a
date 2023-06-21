@@ -53,7 +53,7 @@ export default function Post({copyright, posts}: IProps) {
 	}
 
 	return (
-		<MainLayout title="News A+ | Posts" copyright={copyright}>
+		<MainLayout>
 			<div className="default-body">
 				<h1 className="title">
 					This is page about: {router.query.cat}
