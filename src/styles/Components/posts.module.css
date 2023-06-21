@@ -1,11 +1,19 @@
-.item {
-	margin-bottom: 25px;
+.list {
+
+}
+
+.post {
 	border: solid #cccccc 1px;
 	padding: 15px;
 	list-style: none;
 	background-color: #f9f9f9;
 	box-shadow: -1px 1px 2px -0.5px #cccccc;
 }
+
+.post:not(:last-child) {
+	margin-bottom: 25px;
+}
+
 .title {
 	margin-bottom: 7.5px;
 	text-transform: uppercase;

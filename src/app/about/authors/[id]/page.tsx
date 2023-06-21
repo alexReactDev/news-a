@@ -1,9 +1,18 @@
+import "server-only";
 import Image from "next/image.js";
-import db from "../../../../db.js";
 import style from "../../../../styles/About/author.module.css";
+import PostsList from "../../../../components/postsList";
 
 export default async function Author({ params }) {
-	const author = (await db.query("SELECT * FROM authors where id = $1;", [params.id])).rows[0];
+	const authorData = await fetch(`${process.env.API_BASE_URL}/authors/${params.id}`);
+	const author = await authorData.json();
+
+	const postsData = await fetch(`${process.env.API_BASE_URL}/authors/posts/${params.id}`, {
+		next: {
+			revalidate: 60
+		}
+	});
+	const posts = (await postsData.json()).posts;
 
 	return ( 
 		<div>
@@ -30,6 +39,12 @@ export default async function Author({ params }) {
 				<p>
 					{author.about}
 				</p>
+			</section>
+			<section className={style.posts}>
+				<h3 className="title">
+					Posts
+				</h3>
+				<PostsList className={style.postsList} posts={posts} />
 			</section>
 		</div>
 	)

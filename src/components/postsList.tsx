@@ -1,15 +1,17 @@
 import Link from "next/link";
 import IPost from "../interfaces/IPost";
+import cn from "classnames";
 
 import style from "../styles/Components/posts.module.css";
 
 interface IProps {
-	posts: IPost[]
+	posts: IPost[],
+	className?: string
 }
 
-function PostsList({ posts }: IProps) {
+function PostsList({ posts, className }: IProps) {
 	return (
-		<ul className={style.list}>
+		<ul className={cn(style.list, className)}>
 			{
 				posts.map((post) => {
 					const text = post.text.slice(0, 150) + "...";

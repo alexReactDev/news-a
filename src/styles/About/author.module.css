@@ -27,3 +27,12 @@
 .picture {
 	border: solid #c3c3c3 1px;
 }
+
+.posts {
+	margin-top: 25px;
+}
+
+.postsList {
+	border: dashed #ebebeb 1px;
+	padding: 12px;
+}
