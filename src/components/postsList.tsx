@@ -4,37 +4,21 @@ import Link from "next/link";
 import cn from "classnames";
 
 import style from "../styles/Components/posts.module.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Pagination from "./pagination";
-import IPost from "../interfaces/IPost";
 import useSWR from "swr";
 import Loader from "./loader";
 
 interface IProps {
 	url: string,
 	total: number,
-	initialPosts: IPost[]
 	className?: string
 }
 
-function PostsList({ url, initialPosts, total, className }: IProps) {
+function PostsList({ url, total, className }: IProps) {
 	const [page, setPage] = useState(1);
 
-	const { data: posts, error, isLoading } = useSWR(`${url}?page=${page}`, (...args) => fetch(...args).then(res => res.json()));
-
-	console.log(posts);
-	console.log(isLoading);
-	console.log(error);
-
-
-/*	useEffect(() => {
-		(async () => {
-			const res = await fetch(`${url}?page=${page}`);
-			const loadedPosts = await res.json();
-			setPosts(loadedPosts.posts);
-		})();
-	}, [page, url])
-*/
+	const { data: posts, error } = useSWR(`${url}?page=${page}`, (...args) => fetch(...args).then(res => res.json()));
 
 	if(!posts) return <Loader />
 	if(error) return <p>Error</p>
