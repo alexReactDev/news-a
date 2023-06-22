@@ -7,6 +7,8 @@ import style from "../styles/Components/posts.module.css";
 import { useEffect, useState } from "react";
 import Pagination from "./pagination";
 import IPost from "../interfaces/IPost";
+import useSWR from "swr";
+import Loader from "./loader";
 
 interface IProps {
 	url: string,
@@ -16,27 +18,31 @@ interface IProps {
 }
 
 function PostsList({ url, initialPosts, total, className }: IProps) {
-	const [posts, setPosts] = useState(initialPosts);
 	const [page, setPage] = useState(1);
 
-	console.log(page);
-	console.log(url);
+	const { data: posts, error, isLoading } = useSWR(`${url}?page=${page}`, (...args) => fetch(...args).then(res => res.json()));
 
-	useEffect(() => {
+	console.log(posts);
+	console.log(isLoading);
+	console.log(error);
+
+
+/*	useEffect(() => {
 		(async () => {
-			console.log("loading start");
 			const res = await fetch(`${url}?page=${page}`);
 			const loadedPosts = await res.json();
-			console.log(loadedPosts);
 			setPosts(loadedPosts.posts);
 		})();
 	}, [page, url])
+*/
 
+	if(!posts) return <Loader />
+	if(error) return <p>Error</p>
 	return (
 		<>
 			<ul className={cn(style.list, className)}>
 				{
-					posts.map((post) => {
+					posts.posts.map((post) => {
 						const text = post.text.slice(0, 150) + "...";
 				
 						return (

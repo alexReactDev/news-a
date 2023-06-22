@@ -1,4 +1,5 @@
 import PostsList from "./postsList";
+import SWRConfig from "../misc/ClientSWRConfig";
 
 export default async function PostsListPreload(props) {
 	const res = await fetch(`${props.url}`, {
@@ -8,8 +9,13 @@ export default async function PostsListPreload(props) {
 	});
 
 	const initialPosts = await res.json();
+	const fallback = {
+		[`${props.url}?page=1`]: initialPosts
+	}
 
 	return (
-		<PostsList initialPosts={initialPosts.posts} total={initialPosts.total} {...props} />
+		<SWRConfig value={{ fallback }}>
+			<PostsList initialPosts={initialPosts.posts} total={initialPosts.total} {...props} />
+		</SWRConfig>
 	)
 }
