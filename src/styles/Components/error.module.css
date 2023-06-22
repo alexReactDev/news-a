@@ -1,0 +1,15 @@
+.error {
+	padding: 15px;
+	text-align: center;
+}
+
+.text {
+	margin-bottom: 20px;
+	font-size: 21px;
+	font-weight: bold;
+}
+
+.picture {
+	max-width: 100%;
+	margin: 0px auto;
+}

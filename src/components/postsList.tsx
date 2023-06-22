@@ -8,6 +8,7 @@ import { useState } from "react";
 import Pagination from "./pagination";
 import useSWR from "swr";
 import Loader from "./loader";
+import Error from "./error";
 
 interface IProps {
 	url: string,
@@ -21,7 +22,7 @@ function PostsList({ url, total, className }: IProps) {
 	const { data: posts, error } = useSWR(`${url}?page=${page}`, (...args) => fetch(...args).then(res => res.json()));
 
 	if(!posts) return <Loader />
-	if(error) return <p>Error</p>
+	if(error) return <Error />
 	return (
 		<>
 			<ul className={cn(style.list, className)}>
