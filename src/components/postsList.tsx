@@ -7,7 +7,6 @@ import style from "../styles/Components/posts.module.css";
 import { useEffect, useState } from "react";
 import Pagination from "./pagination";
 import IPost from "../interfaces/IPost";
-import preloadPostsHoc from "../hocs/preloadPostsHoc";
 
 interface IProps {
 	url: string,
@@ -57,4 +56,4 @@ function PostsList({ url, initialPosts, total, className }: IProps) {
 	)
 }
 
-export default preloadPostsHoc(PostsList);
+export default PostsList;
