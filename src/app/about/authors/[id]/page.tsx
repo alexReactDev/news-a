@@ -2,6 +2,8 @@ import "server-only";
 import Image from "next/image.js";
 import style from "../../../../styles/About/author.module.css";
 import PostsListPreload from "../../../../components/postsListPreload";
+import { Suspense } from "react";
+import GifLoader from "../../../../components/gif-loader";
 
 export default async function Author({ params }) {
 	const authorData = await fetch(`${process.env.API_BASE_URL}/authors/${params.id}`);
@@ -39,7 +41,9 @@ export default async function Author({ params }) {
 				<h3 className="title">
 					{"Author's posts"}
 				</h3>
-				<PostsListPreload className={style.postsList} url={url} />
+				<Suspense fallback={<GifLoader style={1} />}>
+					<PostsListPreload className={style.postsList} url={url} />
+				</Suspense>
 			</section>
 		</div>
 	)
