@@ -1,0 +1,23 @@
+.pages {
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+}
+
+.page {
+	width: 24px;
+	height: 24px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	list-style: none;
+	cursor: pointer;
+}
+
+.page:hover {
+	text-decoration: underline;
+}
+
+.page_current {
+	background-color: #c3c3c3;
+}

@@ -7,12 +7,7 @@ export default async function Author({ params }) {
 	const authorData = await fetch(`${process.env.API_BASE_URL}/authors/${params.id}`);
 	const author = await authorData.json();
 
-	const postsData = await fetch(`${process.env.API_BASE_URL}/authors/posts/${params.id}`, {
-		next: {
-			revalidate: 60
-		}
-	});
-	const posts = (await postsData.json()).posts;
+	const url = `${process.env.API_BASE_URL}/authors/posts/${params.id}`;
 
 	return ( 
 		<div>
@@ -42,9 +37,9 @@ export default async function Author({ params }) {
 			</section>
 			<section className={style.posts}>
 				<h3 className="title">
-					Posts
+					{"Author's posts"}
 				</h3>
-				<PostsList className={style.postsList} posts={posts} />
+				<PostsList className={style.postsList} url={url} />
 			</section>
 		</div>
 	)
