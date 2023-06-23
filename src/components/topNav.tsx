@@ -8,22 +8,22 @@ export default function TopNav() {
 			<div className="container">
 				<ul className={style.ul}>
 					<li className={style.li}>
-						<Link className={style.link} href="/posts/cats">
+						<Link className={`${style.link} hover:underline decoration-slate-50 hover:text-slate-50 active:text-slate-500`} href="/posts/cats">
 							Cats
 						</Link>
 					</li>
 					<li className={style.li}>
-						<Link className={style.link} href="/posts/dogs">
+						<Link className={`${style.link} hover:underline decoration-slate-50 hover:text-slate-50 active:text-slate-500`} href="/posts/dogs">
 							Dogs
 						</Link>
 					</li>
 					<li className={style.li}>
-						<Link className={style.link} href="/posts/news">
+						<Link className={`${style.link} hover:underline decoration-slate-50 hover:text-slate-50 active:text-slate-500`} href="/posts/news">
 							World news
 						</Link>
 					</li>
 					<li className={style.li}>
-						<Link className={style.link} href="/about">
+						<Link className={`${style.link} hover:underline decoration-slate-50 hover:text-slate-50 active:text-slate-500`} href="/about">
 							About
 						</Link>
 					</li>
