@@ -3,21 +3,14 @@
 import "client-only";
 import style from "../styles/Components/pagination.module.css";
 import cn from "classnames";
-import { useState } from "react";
 
 interface IProps {
+	current: number,
 	total: number,
 	onChange: (page: number) => void
 }
 
-export default function Pagination({ total, onChange }: IProps) {
-	const [current, setPage] = useState(1);
-
-	const changePage = (page) => {
-		setPage(page);
-		onChange(page);
-	}
-
+export default function Pagination({ current, total, onChange }: IProps) {
 	const pages: number[] = [];
 
 	for (let i = 0; i < total; i++) {
@@ -32,7 +25,7 @@ export default function Pagination({ total, onChange }: IProps) {
 						<li 
 							key={page} 
 							className={cn(style.page, {[style.page_current]: page === current })}
-							onClick={() => changePage(page)}
+							onClick={() => onChange(page)}
 							>
 							{page}
 						</li>

@@ -42,7 +42,7 @@ function PostsList({ url, total, className }: IProps) {
 					})
 				}
 			</ul>
-			<Pagination total={total} onChange={setPage} />
+			<Pagination current={page} total={total} onChange={setPage} />
 		</>
 	)
 }
