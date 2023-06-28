@@ -32,7 +32,7 @@ body {
 .default-body {
 	padding: 15px;
 	border: dashed #c3c3c3 1px;
-	margin-bottom: 15px;
+	margin: 15px 0px;
 	box-shadow: -2px 2px 4px 0px #bbb;
 }
 
