@@ -35,3 +35,13 @@ body {
 	margin-bottom: 15px;
 	box-shadow: -2px 2px 4px 0px #bbb;
 }
+
+a:hover, .link:hover {
+	color: #999999;
+}
+
+a:active, .link:active {
+	position: relative;
+	top: 1px;
+	color: #333333;
+}
