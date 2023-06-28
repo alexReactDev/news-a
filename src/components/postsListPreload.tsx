@@ -15,7 +15,7 @@ export default async function PostsListPreload(props) {
 
 	return (
 		<SWRConfig value={{ fallback, dedupingInterval: 10000 }}>
-			<PostsList initialPosts={initialPosts.posts} total={initialPosts.total} {...props} />
+			<PostsList total={initialPosts.total} {...props} />
 		</SWRConfig>
 	)
 }

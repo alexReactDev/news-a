@@ -3,6 +3,10 @@ import Image from "next/image";
 import messageIcon from "../../../icons/message.png";
 import viewIcon from "../../../icons/eye.png";
 import Link from "next/link";
+import CommentsList from "../../../components/commentsList";
+import { Suspense } from "react";
+import GifLoader from "../../../components/gif-loader";
+import CommentsListPreload from "../../../components/commentsListPreload";
 
 export default async function Post({ params }) {
 	const res = await fetch(`${process.env.API_BASE_URL}/posts/post/${params.id}`);
@@ -44,6 +48,11 @@ export default async function Post({ params }) {
 						<p>{post.comments_count}</p>
 					</li>
 				</ul>
+			</div>
+			<div>
+				<Suspense fallback={<GifLoader style={1} />}>
+					<CommentsListPreload url={`${process.env.API_BASE_URL}/comments/${post.id}`} className="my-3 p-2 border border-solid border-gray-200" />
+				</Suspense>
 			</div>
 		</article>
 	)
