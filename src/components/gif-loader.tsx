@@ -1,7 +1,7 @@
 import Image from "next/image";
-import loader from "../img/loader/loader.gif";
-import loader2 from "../img/loader/loader-2.gif";
-import loader3 from "../img/loader/loader-3.gif";
+import loader from "../icons/loader/loader.gif";
+import loader2 from "../icons/loader/loader-2.gif";
+import loader3 from "../icons/loader/loader-3.gif";
 
 const loaders = [loader, loader2, loader3];
 
