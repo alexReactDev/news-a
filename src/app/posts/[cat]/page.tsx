@@ -1,7 +1,10 @@
 import Link from "next/link";
+import Image from "next/image";
+import ServerPagination from "../../../components/serverPagination";
 
 import style from "./posts.module.css";
-import ServerPagination from "../../../components/serverPagination";
+import messageIcon from "../../../icons/message.png";
+import viewIcon from "../../../icons/eye.png";
 
 export default async function Posts({ params, searchParams }) {
 	const res = await fetch(`${process.env.API_BASE_URL}/posts/${params.cat}?page=${searchParams.page || 1}`);
@@ -19,11 +22,28 @@ export default async function Posts({ params, searchParams }) {
 			
 						return (
 							<li key={post.id} className={style.post}>
-								<h3 className={style.post__title}>{post.title}</h3>
-								<p className={style.post__text}>{text}</p>
-								<Link href={`/post/${post.id}`}>
-									Learn more {"›"}
-								</Link>
+								<div className={style.post__picture}>
+									<Image src={post.picture} width={150} height={150} alt={post.title} />
+								</div>
+								<div className="pl-5">
+									<h3 className={style.post__title}>{post.title}</h3>
+									<p className={style.post__text}>{text}</p>
+									<div className="flex items-center justify-between mt-5">
+										<Link href={`/post/${post.id}`}>
+											Learn more {"›"}
+										</Link>
+										<ul className="flex space-x-4">
+											<li className="flex items-center space-x-1">
+												<Image src={viewIcon} width={16} height={16} alt="views" />
+												<p>{post.views_count}</p>
+											</li>
+											<li className="flex items-center space-x-1">
+												<Image src={messageIcon} width={16} height={16} alt="message" />
+												<p>{post.comments_count}</p>
+											</li>
+										</ul>
+									</div>
+								</div>
 							</li>
 						)
 					})

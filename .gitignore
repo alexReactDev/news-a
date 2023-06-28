@@ -14,7 +14,8 @@
 
 # production
 /build
-/public/img
+/public
+!/public/favicon.ico
 
 # misc
 .DS_Store
