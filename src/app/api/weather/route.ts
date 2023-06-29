@@ -26,7 +26,7 @@ function createWeather() {
 }
 
 setInterval(updateWeather, 5000);
-setInterval(() => {weather = createWeather()}, 30000);
+setInterval(() => {weather = createWeather()}, 60000);
 
 export function GET() {
 	return NextResponse.json(weather);
