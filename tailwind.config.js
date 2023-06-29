@@ -9,11 +9,12 @@ module.exports = {
         "react": "#00a8f3",
         "grey-light": "#c3c3c3",
         "grey": "#585858",
-        "grey-dark": "#333333"
+        "grey-dark": "#333333",
+        "barely-visible-grey": "#fcfcfc"
       }
     },
     screens: { //Will overwrite all default values
-      "xs": "320px",
+      "xs": "380px",
       "s": "450px",
       "m": "600px",
       "l": "800px",
