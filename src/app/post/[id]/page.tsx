@@ -3,10 +3,10 @@ import Image from "next/image";
 import messageIcon from "../../../icons/message.png";
 import viewIcon from "../../../icons/eye.png";
 import Link from "next/link";
-import CommentsList from "../../../components/commentsList";
 import { Suspense } from "react";
 import GifLoader from "../../../components/gif-loader";
 import CommentsListPreload from "../../../components/commentsListPreload";
+import Reactions from "../../../components/reactions";
 
 export default async function Post({ params }) {
 	const res = await fetch(`${process.env.API_BASE_URL}/posts/post/${params.id}`);
@@ -28,8 +28,8 @@ export default async function Post({ params }) {
 			<p className="mb-5">
 				{post.text}
 			</p>
-			<div className="flex justify-between">
-				<p className="mb-4">
+			<div className="flex justify-between mb-5 mx-1">
+				<p>
 					Author:
 					<Link href={`/about/authors/${author.id}`} className="hover:underline ml-1.5">
 						{author.name}
@@ -37,7 +37,8 @@ export default async function Post({ params }) {
 				</p>
 				<p>Created: {created}</p>
 			</div>
-			<div className="flex justify-end">
+			<div className="flex items-center justify-between mb-5 mx-1">
+				<Reactions url={`${process.env.API_BASE_URL}/reactions`} postId={post.id}/>
 				<ul className="flex space-x-4">
 					<li className="flex items-center space-x-1">
 						<Image src={viewIcon} width={16} height={16} alt="views" />
