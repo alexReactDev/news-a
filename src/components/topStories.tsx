@@ -22,7 +22,7 @@ export default async function TopStories({ className }: IProps) {
 						return (
 							<li key={post.id} className="flex [&:not(:last-child)]:mb-3 border border-solid border-gray-200 bg-barely-visible-grey">
 								<div className="w-1/5 flex">
-									<Image src={post.picture} width={75} height={75} alt={post.title} className="border border-solid border-gray-300 object-cover"></Image>
+									<Image src={post.picture} width={75} height={70} alt={post.title} className="w-[75px] h-[70px] border border-solid border-gray-300 object-cover"></Image>
 								</div>
 								<div className="w-4/5 pl-3 py-2">
 									<Link href={`/post/${post.id}`}>
