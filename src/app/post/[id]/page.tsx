@@ -7,6 +7,7 @@ import { Suspense } from "react";
 import GifLoader from "../../../components/gif-loader";
 import CommentsListPreload from "../../../components/commentsListPreload";
 import Reactions from "../../../components/reactions";
+import CommentsForm from "../../../components/commentsForm";
 
 export default async function Post({ params }) {
 	const res = await fetch(`${process.env.API_BASE_URL}/posts/post/${params.id}`);
@@ -50,6 +51,7 @@ export default async function Post({ params }) {
 					</li>
 				</ul>
 			</div>
+			<CommentsForm url={`${process.env.API_BASE_URL}/comments/${post.id}`} />
 			<div>
 				<Suspense fallback={<GifLoader style={1} />}>
 					<CommentsListPreload url={`${process.env.API_BASE_URL}/comments/${post.id}`} className="my-3 p-2 border border-solid border-gray-200" />
