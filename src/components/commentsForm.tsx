@@ -1,7 +1,7 @@
 "use client"
 
 import axios from "axios"
-import { useFormik } from "formik"
+import { Formik, useFormik } from "formik"
 import { useSWRConfig } from "swr"
 import { object, string } from "yup"
 
@@ -28,6 +28,7 @@ export default function CommentsForm({ url, className }: IProps) {
 	const formik = useFormik({
 		initialValues,
 		validationSchema,
+		validateOnMount: true,
 		async onSubmit(values) {
 			await axios.post(url, values);
 			mutate(`${url}?page=1`);
@@ -79,7 +80,8 @@ export default function CommentsForm({ url, className }: IProps) {
 				<input
 					type="submit"
 					value="Send"
-					className="px-5 py-2 rounded-md bg-react text-white font-bold shadow shadow-gray-400 hover:bg-blue active:relative active:top-0.5"
+					className="px-5 py-2 rounded-md bg-react text-white font-bold shadow shadow-gray-400 hover:bg-blue active:relative active:top-0.5 disabled:bg-gray-400 disabled:active:static"
+					disabled={!formik.isValid}
 				/>
 			</div>
 		</form>
