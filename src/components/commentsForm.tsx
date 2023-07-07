@@ -32,9 +32,7 @@ export default function CommentsForm({ url, className }: IProps) {
 			await axios.post(url, values);
 			mutate(`${url}?page=1`);
 
-			//Neither works...
-			formik.setValues(initialValues);
-			formik.resetForm();
+			formik.resetForm({});
 		}
 	})
 
@@ -51,6 +49,7 @@ export default function CommentsForm({ url, className }: IProps) {
 						id="author"
 						placeholder="Your name"
 						onChange={formik.handleChange}
+						value={formik.values.author}
 						className="w-full px-3 py-2"
 					/>
 				</div>
@@ -61,6 +60,7 @@ export default function CommentsForm({ url, className }: IProps) {
 						id="email"
 						placeholder="Email"
 						onChange={formik.handleChange}
+						value={formik.values.email}
 						className="w-full px-3 py-2"
 					/>
 				</div>
@@ -71,6 +71,7 @@ export default function CommentsForm({ url, className }: IProps) {
 					id="text"
 					placeholder="Comment"
 					onChange={formik.handleChange}
+					value={formik.values.text}
 					className="w-full px-3 py-2 resize-none"
 				/>
 			</div>
