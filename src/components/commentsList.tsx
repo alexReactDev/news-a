@@ -17,9 +17,6 @@ export default function CommentsList({ url, total, className }: IProps) {
 
 	const { data: comments, error } = useSWR(`${url}?page=${page}`, (...args) => fetch(...args).then(res => res.json()));
 
-	console.log("COMMENTS");
-	console.log(comments);
-
 	if(error) return <Error />
 	if(!comments) return <Loader />
 
