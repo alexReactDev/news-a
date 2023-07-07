@@ -1,7 +1,8 @@
 "use client"
 
 import axios from "axios"
-import { Formik, useFormik } from "formik"
+import { useFormik } from "formik"
+import { useState } from "react"
 import { useSWRConfig } from "swr"
 import { object, string } from "yup"
 
@@ -17,6 +18,8 @@ const validationSchema = object({
 })
 
 export default function CommentsForm({ url, className }: IProps) {
+	const [error, setError] = useState("");
+
 	const { mutate } = useSWRConfig();
 
 	const initialValues = {
@@ -30,18 +33,35 @@ export default function CommentsForm({ url, className }: IProps) {
 		validationSchema,
 		validateOnMount: true,
 		async onSubmit(values) {
-			await axios.post(url, values);
+			try {
+				await axios.post(url, values);
+			}
+			catch(e: any) {
+				console.log(e);
+				setError(e?.response?.data || e.message || "Error occurred");
+			}
 			mutate(`${url}?page=1`);
 
-			formik.resetForm({});
+			formik.resetForm();
 		}
 	})
+
+	function changeHandler(e: any) {
+		if(error) setError("");
+		formik.handleChange(e);
+	}
 
 	return (
 		<form className={`${className} border border-solid border-gray-200 p-3`} onSubmit={formik.handleSubmit}>
 			<h3 className="title">
 				Comment
 			</h3>
+			{
+				error &&
+				<p className="mb-3 p-2 border-2 border-solid border-red-700 bg-red-300 text-red-600 text-center font-bold">
+					{error}
+				</p>
+			}
 			<div className="flex mb-3 justify-between gap-8">
 				<div className="grow border border-solid border-gray-400">
 					<input
@@ -49,7 +69,7 @@ export default function CommentsForm({ url, className }: IProps) {
 						name="author"
 						id="author"
 						placeholder="Your name"
-						onChange={formik.handleChange}
+						onChange={changeHandler}
 						value={formik.values.author}
 						className="w-full px-3 py-2"
 					/>
@@ -60,7 +80,7 @@ export default function CommentsForm({ url, className }: IProps) {
 						name="email"
 						id="email"
 						placeholder="Email"
-						onChange={formik.handleChange}
+						onChange={changeHandler}
 						value={formik.values.email}
 						className="w-full px-3 py-2"
 					/>
@@ -71,7 +91,7 @@ export default function CommentsForm({ url, className }: IProps) {
 					name="text"
 					id="text"
 					placeholder="Comment"
-					onChange={formik.handleChange}
+					onChange={changeHandler}
 					value={formik.values.text}
 					className="w-full px-3 py-2 resize-none"
 				/>
