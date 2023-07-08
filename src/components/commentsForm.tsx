@@ -52,7 +52,7 @@ export default function CommentsForm({ url, className }: IProps) {
 	}
 
 	return (
-		<form className={`${className} border border-solid border-gray-200 p-3`} onSubmit={formik.handleSubmit}>
+		<form data-testid="form" className={`${className} border border-solid border-gray-200 p-3`} onSubmit={formik.handleSubmit}>
 			<h3 className="title">
 				Comment
 			</h3>
@@ -102,6 +102,7 @@ export default function CommentsForm({ url, className }: IProps) {
 					value="Send"
 					className="px-5 py-2 rounded-md bg-react text-white font-bold shadow shadow-gray-400 hover:bg-blue active:relative active:top-0.5 disabled:bg-gray-400 disabled:active:static"
 					disabled={!formik.isValid}
+					data-testid="submit"
 				/>
 			</div>
 		</form>
