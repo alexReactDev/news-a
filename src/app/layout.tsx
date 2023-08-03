@@ -34,6 +34,12 @@ export default function RootLayout({
               display: flex;
               flex-direction: column;
             }
+
+            @media (max-width: 768px) {
+              header {
+                padding: 10px;
+              }
+            }
           `}</style>
           <div className="wrapper">
             <header>

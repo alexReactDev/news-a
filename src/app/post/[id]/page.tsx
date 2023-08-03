@@ -19,7 +19,7 @@ export default async function Post({ params }) {
 	const created = new Date(+post.created).toString().match(/.+?(?=\sGMT)/);
 
 	return (
-		<article>
+		<article className="text-center m:text-left">
 			<div className="flex justify-center mb-5">
 				<img src={post.picture} alt={post.title} className="max-h-96" />
 			</div>
@@ -29,8 +29,8 @@ export default async function Post({ params }) {
 			<p className="mb-5">
 				{post.text}
 			</p>
-			<div className="flex justify-between mb-5 mx-1">
-				<p>
+			<div className="flex flex-col items-center m:flex-row justify-between mb-3 m:mb-5 mx-1">
+				<p className="mb-3 m:mb-0">
 					Author:
 					<Link href={`/about/authors/${author.id}`} className="hover:underline ml-1.5">
 						{author.name}
@@ -38,8 +38,8 @@ export default async function Post({ params }) {
 				</p>
 				<p>Created: {created}</p>
 			</div>
-			<div className="flex items-center justify-between mb-5 mx-1">
-				<Reactions url={`${process.env.API_BASE_URL}/reactions`} postId={post.id}/>
+			<div className="flex flex-col m:flex-row items-center justify-between mb-5 mx-1">
+				<Reactions url={`${process.env.API_BASE_URL}/reactions`} postId={post.id} className="mb-3 m:mb-0"/>
 				<ul className="flex space-x-4">
 					<li className="flex items-center space-x-1">
 						<Image src={viewIcon} width={16} height={16} alt="views" />

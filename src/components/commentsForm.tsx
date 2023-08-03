@@ -62,8 +62,8 @@ export default function CommentsForm({ url, className }: IProps) {
 					{error}
 				</p>
 			}
-			<div className="flex mb-3 justify-between gap-8">
-				<div className="grow border border-solid border-gray-400">
+			<div className="m:flex mb-3 justify-between gap-8">
+				<div className="grow border border-solid border-gray-400 mb-3 m:mb-0">
 					<input
 						type="text"
 						name="author"

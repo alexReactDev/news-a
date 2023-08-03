@@ -25,6 +25,8 @@
 }
 
 .picture {
+	display: flex;
+	justify-content: center;
 	border: solid #c3c3c3 1px;
 }
 
@@ -35,4 +37,19 @@
 .postsList {
 	border: dashed #ebebeb 1px;
 	padding: 12px;
+}
+
+@media (max-width: 580px) {
+	.data {
+		flex-direction: column;
+		text-align: center;
+	}
+
+	.picture {
+		margin-bottom: 15px;
+	}
+
+	.info {
+		padding-left: 0px;
+	}
 }

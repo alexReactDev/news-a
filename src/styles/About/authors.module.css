@@ -21,4 +21,15 @@
 
 .picture {
 	border: solid #c3c3c3 1px;
+	flex-shrink: 0;
+}
+
+@media (max-width: 450px) {
+	.profile {
+		flex-direction: column;
+	}
+
+	.picture {
+		margin-bottom: 15px;
+	}
 }

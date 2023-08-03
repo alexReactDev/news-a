@@ -6,7 +6,12 @@ import style from "./posts.module.css";
 import messageIcon from "../../../icons/message.png";
 import viewIcon from "../../../icons/eye.png";
 
-export default async function Posts({ params, searchParams }) {
+export default async function Posts(props) {
+	console.log(props)
+
+	const params = props.params;
+	const searchParams = props.searchParams;
+
 	const res = await fetch(`${process.env.API_BASE_URL}/posts/${params.cat}?page=${searchParams.page || 1}`);
 	const { posts, page, total } = await res.json();
 	
@@ -25,7 +30,7 @@ export default async function Posts({ params, searchParams }) {
 								<div className={style.post__picture}>
 									<Image src={post.picture} width={150} height={150} alt={post.title} />
 								</div>
-								<div className="pl-5">
+								<div className="m:pl-5">
 									<h3 className={style.post__title}>{post.title}</h3>
 									<p className={style.post__text}>{text}</p>
 									<div className="flex items-center justify-between mt-5">
