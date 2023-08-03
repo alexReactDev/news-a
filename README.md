@@ -1,34 +1,57 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# News A
+## :uk: English
+__Description:__ News website
 
-## Getting Started
+__Deployed project:__ http://news-a.alexander-portfolio-and-cv.com
 
-First, run the development server:
+__Used technologies:__
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+- Typescript
+- React
+- React hooks
+- React server components
+- Next.js (app router)
+- Tailwind
+- Adaptive-responsive design
+- Flex layout
+- Formik, Yup
+- Axios
+- SWR
+- Express
+- PostgreSQL
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+__About project:__ News website with information about authors, comments, reactions and small weather widget. It's my first website written on new Next.js app router. Initially, I didn't plan to publish it, but it turned out to be quit good, so I decided, why not. TailwindCSS was used for styling. Website also has api written on Node.js/Express. PostgreSQL used as data storage.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## :ru: Русский
+__Описание:__ Новостной вебсайт
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+__Развернутый проект:__ http://news-a.alexander-portfolio-and-cv.com
 
-## Learn More
+__Использованные технологии:__
 
-To learn more about Next.js, take a look at the following resources:
+- Typescript
+- React
+- React hooks
+- React server components
+- Next.js (app router)
+- Tailwind
+- Adaptive-responsive design
+- Flex layout
+- Formik, Yup
+- Axios
+- SWR
+- Express
+- PostgreSQL
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<br>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+__О проекте:__ Новостной вебсайт с информацией об авторах, возможностью комментировать и оставлять реакции. Так же есть небольшой виджет погоды. Это мой первый сайт написанный на Next.js с использованием нового app router. Изначально я не планировал его публиковать, но он получился довольно неплохим и я решил почему бы и нет. Для создания стилей испльзовался Tailwind. Для работы с формой комментариев и ее валидации использованы formik и yup. Так же есть api написанный на Node.js/Express. Для хранения данных используется БД PostgreSQL.
 
-## Deploy on Vercel
+<br>
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Preview/Превью
+![homepage](./preview/home.png)
+![projects](./preview/projects.png)
+![skills](./preview/skills.png)
+![projects_list](./preview/projects_list.png)
+![contacts](./preview/contacts.png)
