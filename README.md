@@ -50,8 +50,6 @@ __О проекте:__ Новостной вебсайт с информацие
 <br>
 
 ## Preview/Превью
-![homepage](./preview/home.png)
-![projects](./preview/projects.png)
-![skills](./preview/skills.png)
-![projects_list](./preview/projects_list.png)
-![contacts](./preview/contacts.png)
+![posts](./preview/posts.png)
+![post](./preview/post.png)
+![author](./preview/author.png)
